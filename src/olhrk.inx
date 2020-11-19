@@ -1,0 +1,16 @@
+<?xml version="1.0" encodint="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>{send_to_haruka}<_name>
+  <id>com.oh-laser.send-to-haruka</id>
+  <dependency type="executable" location="extensions">olhrk.py</dependency>
+  <effect needs-live-preview="false" needs-document="true">
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu _name="{export}"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">olhrk.py</command>
+  </script>
+<!-- vi: se ts=2 sw=2 et: -->
+</inkscape-extension>
