@@ -1,1 +1,5 @@
 *.pyc
+*.swp
+*~
+i18n/
+dist/

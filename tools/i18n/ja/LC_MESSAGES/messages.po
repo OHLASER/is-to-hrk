@@ -1,0 +1,26 @@
+# haruka plugin tranlations.
+# Copyright (C) Oh-Laser Co., Ltd.
+# This file is distributed under the same license as the HARUKA package.
+# Toshiyuki Ogawa<ogawa@oh-laser.com>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-19 11:59+0900\n"
+"PO-Revision-Date: 2020-11-19 11:53:00+0900\n"
+"Last-Translator: Toshiyuki Ogawa<ogawa@oh-laser.com>\n"
+"Language-Team: Oh-laser software department<info@oh-laser.com>\n"
+"Language: Japanese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tools/strtmpl.py:8
+msgid "Send To HARUKA"
+msgstr "HARUKAに転送"
+
+#: tools/strtmpl.py:9
+msgid "Export"
+msgstr ""
