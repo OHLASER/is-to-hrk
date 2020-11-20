@@ -10,9 +10,11 @@ from lxml import etree
 
 
 class OlHrk(inkex.Effect): 
+    """ Oh-Laser HARUKA Plugin """ 
 
     @classmethod
     def doc_template(cls): 
+        """ document template for sending """
         return '''<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns="http://www.w3.org/2000/svg"
@@ -65,6 +67,8 @@ class OlHrk(inkex.Effect):
      
     @classmethod
     def to_filepath(cls, path):
+        """ convert dos directory seperator to unix like
+            directory seperator. """
         return path.replace('\\', '/') 
 
     @classmethod
@@ -91,6 +95,7 @@ class OlHrk(inkex.Effect):
 
     @classmethod
     def client_load_data(cls, dl_obj, str_data, data_name):
+        """ request to load data for HARUKA. """
         data_name_zero = data_name + '\0'  
 
         str_data_enc = str_data.encode()
@@ -105,16 +110,19 @@ class OlHrk(inkex.Effect):
 
     @classmethod
     def client_connect(cls, dl_obj):
+        """ connect to HARUKA. """
         connect = cls.get_oldl_hdl().oldl_client_connect     
         return connect(dl_obj)
     
     @classmethod
     def client_disconnect(cls, dl_obj):
+        """ disconnect from HARUKA. """
         disconnect = cls.get_oldl_hdl().oldl_client_disconnect     
         return disconnect(dl_obj)
 
     @classmethod
     def str_to_hex_str(cls, str_obj):
+        """ str to hex string. """
         result = '' 
         for ch in str_obj:
             if isinstance(ch, str):
@@ -133,9 +141,11 @@ class OlHrk(inkex.Effect):
 
 
     def __init__(self):
+        """ constructor """
         inkex.Effect.__init__(self)
 
     def create_doc(self):
+        """ create document. """
         doc = etree.parse(io.BytesIO(self.doc_template().encode('utf-8'))) 
         src_doc = self.document
         width = src_doc.getroot().get("width") 
@@ -149,6 +159,7 @@ class OlHrk(inkex.Effect):
             doc.getroot().set("viewBox", view_box)
         return doc 
     def effect(self):
+        """ Do effect somethin. Actually I send data in this procedure."""
         if hasattr(self, 'svg'):
             elem_root = self.svg.selected
         else:
