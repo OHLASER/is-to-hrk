@@ -117,9 +117,13 @@ class OlHrk(inkex.Effect):
     def str_to_hex_str(cls, str_obj):
         result = '' 
         for ch in str_obj:
-            result += '{0:0>2x}'.format(ord(ch))
+            if isinstance(ch, str):
+                result += '{0:0>2x}'.format(ord(ch))
+            else:
+                result += '{0:0>2x}'.format(ch)
         return result
 
+    
         
     @classmethod
     def get_oldl_path(cls):
@@ -145,19 +149,19 @@ class OlHrk(inkex.Effect):
             doc.getroot().set("viewBox", view_box)
         return doc 
     def effect(self):
-        elem_root = self.selected
-        
-
+        if hasattr(self, 'svg'):
+            elem_root = self.svg.selected
+        else:
+            elem_root = self.selected
         
         doc = self.create_doc()
-
-        
  
         for key in elem_root:
             elem = copy.deepcopy(elem_root[key])
             doc.getroot().append(elem)
              
-        proc_data = self.create_processing_data_str(etree.tostring(doc))
+        data_str = etree.tostring(doc)
+        proc_data = self.create_processing_data_str(data_str)
 
         dl_ins = OlHrk.client_create()
         state = OlHrk.client_connect(dl_ins)
@@ -169,10 +173,6 @@ class OlHrk(inkex.Effect):
             OlHrk.client_disconnect(dl_ins) 
 
         OlHrk.client_release(dl_ins)
-
-
-
-
            
         pass
 
@@ -189,5 +189,9 @@ class OlHrk(inkex.Effect):
 
 if __name__ == '__main__':
     e = OlHrk()
-    e.affect()
+    if hasattr(e, 'run'):
+        e.run()
+    else:
+        e.affect()
+
 # vi: se ts=4 sw=4 et:

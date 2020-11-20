@@ -1,6 +1,6 @@
 <?xml version="1.0" encodint="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-  <_name>{send_to_haruka}<_name>
+  <_name>{send_to_haruka}</_name>
   <id>com.oh-laser.send-to-haruka</id>
   <dependency type="executable" location="extensions">olhrk.py</dependency>
   <effect needs-live-preview="false" needs-document="true">
