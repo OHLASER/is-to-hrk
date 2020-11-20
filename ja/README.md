@@ -1,0 +1,3 @@
+# InkScape Plugin for HARUKA
+
+InkScapeでHARUKAに転送を行うためのプロジェクトです。HARUKAはHAJIMEレーザー加工機を操作するソフトウェアです。InkScapeで作成したグラフィックオブジェクトをHAJIMEで簡単に加工出来るようになると思います。
